@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "pm2-runtime start ecosystem.config.js --env production",
-    "start_dev": "NODE_ENV='development' TZ='utc' nodemon ./src/server.js",
+    "start_dev": "NODE_ENV='development' TZ='utc' PORT=3333 nodemon ./src/server.js",
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
