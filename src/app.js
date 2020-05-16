@@ -9,7 +9,7 @@ const { setUpWebsocket } = require('./services/websocket');
 const app = express();
 const server = http.Server(app);
 
-setUpWebsocket(server, { origins: process.env.WEBSOCKET_CLIENT });
+setUpWebsocket(server, { origins: process.env.WEBSOCKET_CLIENT + ':*' });
 
 app.use(cors());
 app.use(express.json());
