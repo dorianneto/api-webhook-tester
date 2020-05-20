@@ -11,7 +11,7 @@ const server = http.Server(app);
 
 setUpWebsocket(server, {
   origins: process.env.WEBSOCKET_CLIENT + ':*',
-  transports: ['websocket']
+  transports: ['websocket', 'polling']
 });
 
 app.use(cors());
