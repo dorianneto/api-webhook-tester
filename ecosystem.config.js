@@ -1,9 +1,13 @@
 module.exports = {
   apps: [{
     name: "api-webhook-tester",
-    script: "./src/server.js",
-    instances: "max",
-    env_production: {
+    script: "./src/app.js",
+    instances: "1",
+    env: {
+      NODE_ENV: "development",
+      TZ: "utc"
+    },
+    env_development: {
       NODE_ENV: "production",
     }
   }]
