@@ -1,4 +1,5 @@
 const cache = require('../cache/connection');
+const url = require('url');
 const { v1: uuidv1 } = require('uuid');
 const { findSocketConnection, emitMessageTo } = require('../services/websocket');
 
@@ -9,7 +10,11 @@ module.exports = {
     cache.get(token, async (err, reply) => {
       let value = JSON.parse(reply);
 
-      if (request.headers.origin == process.env.WEBSOCKET_CLIENT) {
+      const websocketClient = url.parse(process.env.WEBSOCKET_CLIENT).hostname;
+      const headerOrigin = request.headers.origin ?
+        url.parse(request.headers.origin).hostname : null;
+
+      if (headerOrigin == websocketClient) {
         return response.json(value);
       }
 
