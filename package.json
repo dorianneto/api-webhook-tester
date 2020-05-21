@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "pm2-runtime start ecosystem.config.js --env production",
-    "start_dev": "pm2-runtime start ecosystem.config.js",
+    "start_dev": "pm2-runtime start ecosystem.config.js --watch",
     "test": "cross-env NODE_ENV=test jest"
   },
   "dependencies": {
